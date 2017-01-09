@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>JRD</title>
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/jrd-common.css">
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="image/logo.jpg" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="image/logo.jpg" alt=""></a>
+        </div>
+        <!--logo and iconic logo end-->
+
+        <div class="left-side-inner">
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav" id="leftSlider1">
+                <li class="active"><a href="input.html"><i class="fa fa-home"></i> <span>支站点查询</span></a></li>
+                <li class="active"><a href="table.html"><i class="fa fa-home"></i> <span>订单录入</span></a></li>
+                <li class="active"><a href="###"><i class="fa fa-home"></i> <span>退件详情</span></a></li>
+            </ul>
+
+            <ul class="nav nav-pills nav-stacked custom-nav" id="leftSlider2">
+                <li class="active"><a href="input.html"><i class="fa fa-home"></i> <span>总站查询</span></a></li>
+                <li class="active"><a href="table.html"><i class="fa fa-home"></i> <span>订单录入</span></a></li>
+                <li class="active"><a href="###"><i class="fa fa-home"></i> <span>退件详情</span></a></li>
+            </ul>
+
+            <ul class="nav nav-pills nav-stacked custom-nav" id="leftSlider3">
+                <li class="active"><a href="input.html"><i class="fa fa-home"></i> <span>服务台查询</span></a></li>
+                <li class="active"><a href="table.html"><i class="fa fa-home"></i> <span>订单录入</span></a></li>
+                <li class="active"><a href="###"><i class="fa fa-home"></i> <span>退件详情</span></a></li>
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+    
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge">5</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-head pull-right">
+                            <h5 class="title">您有5条信息 </h5>
+                            <ul class="dropdown-list normal-list">
+                                <li class="new">
+                                    <a href="">
+                                        <span class="desc">
+                                          <span class="name">华阳<span class="badge badge-success">new</span></span>
+                                          <span class="msg">我是相关信息</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="new">
+                                    <a href="">
+                                        <span class="desc">
+                                          <span class="name">华阳<span class="badge badge-success">new</span></span>
+                                          <span class="msg">我是相关信息</span>
+                                        </span>
+                                    </a>
+                                </li>
+ 
+                                <li class="new"><a href="#/test">全部标记为已读</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            金牛之战站长
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="#"><i class="fa fa-user"></i>  王大锤</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i>  修改密码</a></li>
+                            <li><a href="#"><i class="fa fa-sign-out"></i> 登出</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+            <div class="jrd-content" >
+              <iframe class=''  src="table.html" scrolling="no" frameborder="0">
+                  
+              </iframe>  
+            </div>
+        </div>
+        <!-- header section end-->
+
+        <!--body wrapper start-->
+
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <footer>
+            2014 &copy;JRD
+        </footer>
+        <!--footer section end-->
+    </div>
+    <!-- main content end-->
+</section>
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<script src="js/scripts.js"></script>
+<script>
+$(function(){
+    $.ajax({
+        url:"role.json",
+        type:"GET",
+        success:function(data){
+            if(data.role==1){
+                console.log(data);
+                window.location.hash="#sub";
+                $("#leftSlider"+data.role).show().siblings().hide();
+            }
+        }
+
+    })
+})
+
+let leftSlider=document.getElementById("leftSlider1");
+leftSlider1.addEventListener("click",loadPage,true)
+function loadPage(e){
+    e.preventDefault();
+    let targetElement=e.target.nodeName==="A"?e.target:e.target.parentNode;
+    let href=targetElement.getAttribute("href");
+    $("iframe").attr("src",href)
+}
+</script>
+</body>
+</html>

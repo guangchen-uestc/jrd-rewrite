@@ -1,0 +1,18 @@
+/*nav隐藏*/
+.nav-pills{
+	display: none;
+}
+
+/*iframe css*/
+iframe{
+	width:80%;
+}
+
+/*content  每个module的wrapper*/
+
+.jrd-content{
+	width: 100%;
+    height: 100vh;
+    margin-top:50px;
+    background: #fff;
+}
